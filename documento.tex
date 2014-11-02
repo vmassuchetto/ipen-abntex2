@@ -1,0 +1,386 @@
+%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files iptex.sty and exemplo.tex, and implements
+%% the documentation standard for the Nuclear Energy Research Institute
+%% (IPEN) education programs.
+
+% Classe do documento
+% -------------------
+
+\documentclass[
+	12pt,                       % tamanho da fonte
+	oneside,                    % impressão em um lado
+	a4paper,                    % tamanho do papel.
+	chapter=TITLE,              % títulos de capítulos em letras maiúsculas
+	section=TITLE,              % títulos de seções em letras maiúsculas
+	brazil                      % o último idioma é o principal do documento
+    sumario=tradicional         % utiliza o sumário comum do abnTeX2
+]{abntex2}
+
+% Pacotes utilizados
+% ------------------
+
+\usepackage{helvet}                             % fonte helveltica
+\usepackage[T1]{fontenc}                        % seleçã de códigos de fonte
+\usepackage[utf8]{inputenc}                     % codificação UTF-8
+\usepackage{lastpage}                           % usado pela ficha catalográfica
+\usepackage{indentfirst}                        % denteia o primeiro parágrafo de cada seção
+\usepackage{color}                              % controle das cores
+\usepackage{graphicx}                           % inclusão de figuras
+\usepackage{geometry}                           % espaçamentos de página
+\usepackage{microtype}                          % melhorias da justificação
+\usepackage{lipsum}                             % gera textos de exemplo
+\usepackage[alf]{abntex2cite}	                % citações no padrão ABNT
+\usepackage{ipen}                               % formatação da capa e da folha de rosto
+
+% Configurações dos pacotes
+% -------------------------
+
+% Fonte arial como padrão
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Capa e folha de rosto
+
+\titulo{Título do Trabalho}
+\subtitulo{Subtítulo do trabalho}               % deixe como \subtitulo{\ } se não quiser usar
+\autor{Seu Nome}
+\instituicao{Instituto de Pesquisas Energéticas e Nucleares}
+\instituicaosub{Autarquia associada à Universidade de São Paulo}
+\local{São Paulo}
+\data{2014}
+\orientador{Nome do Orientador}
+\preambulo{(Dissertação ou Tese) apresentada como parte dos requisitos para
+  obtenção do Grau de (Mestre ou Doutor) em Ciências na Área de Tecnologia
+  Nuclear – (Aplicações ou Materiais ou Reatores);}
+
+% Informações do PDF
+
+\makeatletter
+\hypersetup{
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  pdfsubject={\imprimirpreambulo},
+  pdfcreator={LaTeX with abnTeX2},
+  pdfkeywords={palavras}{chave}{aqui},
+  colorlinks=false,
+  hidelinks=true
+}
+\makeatother
+
+\setlrmarginsandblock{3.5cm}{2.0cm}{*}  % margens direita e esquerda
+\setulmarginsandblock{3.0cm}{2.0cm}{*}  % margens superior e inferior
+\checkandfixthelayout
+\setlength{\parindent}{2.0cm}           % recuo do parágrafo
+\setlength{\parskip}{0.2cm}             % espaçamento entre parágrafos
+\linespread{1.3}                        % espaçamento padrão de 1,5 entre linhas
+\makeindex                              % índice
+
+% Início do documento
+% -------------------
+
+\begin{document}
+\frenchspacing                  % retira espaços extras entre as frases
+\imprimircapa                   % capa
+\imprimirfolhaderosto           % folha de rosto
+
+% Ficha bibliografica
+%
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+% \begin{fichacatalografica}
+%   \includepdf{ficha-catalografica.pdf}
+% \end{fichacatalografica}
+%
+% \begin{fichacatalografica}
+%   \vspace*{\fill}					% posição vertical
+%   \hrule							% linha horizontal
+%   \begin{center}					% minipage centralizada
+%   \begin{minipage}[c]{12.5cm}		% largura
+% 	  \imprimirautor
+% 	  \hspace{0.5cm}
+%     \imprimirtitulo / \imprimirautor. -- \imprimirlocal, \imprimirdata
+%     \hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+%     \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+%     \hspace{0.5cm}
+%     \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+%     \imprimirdata.}\\
+% 	  \hspace{0.5cm}
+% 		1. Palavra-chave1.
+% 		2. Palavra-chave2.
+% 		I. Orientador.
+% 		II. Universidade xxx.
+% 		III. Faculdade de xxx.
+% 		IV. Título\\
+% 	  \hspace{8.75cm} CDU 02:141:005.7\\
+% 	\end{minipage}
+%   \end{center}
+% \hrule
+% \end{fichacatalografica}
+% ---
+
+% Dedicatória
+
+\begin{dedicatoria}
+  \vspace*{\fill}
+  \centering
+  \noindent
+  \textit{ Este trabalho é dedicado às crianças adultas que,\\
+  quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+\end{dedicatoria}
+
+% Agradecimentos
+
+\begin{agradecimentos}
+  Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
+  Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+  Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
+  projeto abn\TeX\ foram extraídos de
+  \url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
+  contribuíram para que a produção de trabalhos acadêmicos conforme
+  as normas ABNT com \LaTeX\ fosse possível.
+
+  Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
+  da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+  Brasília (CPAI), ao grupo de usuários
+  \emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+  novos voluntários do grupo
+  \emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
+  \url{http://abntex2.googlecode.com/}}~que contribuíram e que ainda
+  contribuirão para a evolução do \abnTeX.
+
+\end{agradecimentos}
+
+% Epígrafe
+
+\begin{epigrafe}
+  \vspace*{\fill}
+  \begin{flushright}
+    \textit{``Não vos amoldeis às estruturas deste mundo, \\
+ 	mas transformai-vos pela renovação da mente, \\
+ 	a fim de distinguir qual é a vontade de Deus: \\
+ 	o que é bom, o que Lhe é agradável, o que é perfeito.\\
+ 	(Bíblia Sagrada, Romanos 12, 2)}
+  \end{flushright}
+\end{epigrafe}
+
+% Resumos
+
+\newgeometry{top=5cm,left=3.5cm,right=2cm,bottom=2cm}
+\begin{resumo}
+  Segundo a NBR6028:2003, o resumo deve ressaltar o objetivo, o método, os
+  resultados e as conclusões do documento. A ordem e a extensão destes itens
+  dependem do tipo de resumo (informativo ou indicativo) e do tratamento que
+  cada item recebe no documento original. O resumo deve ser precedido da
+  referência do documento, com exceção do resumo inserido no próprio documento.
+  (\ldots) As palavras-chave devem figurar logo abaixo do resumo, antecedidas
+  da expressão Palavras-chave:, separadas entre si por ponto e finalizadas
+  também por ponto.
+
+  \vspace{\onelineskip}
+  \noindent
+  \textbf{Palavras-chaves}: latex, abntex, editoração de texto
+\end{resumo}
+
+\begin{resumo}[Abstract]
+  \begin{otherlanguage*}{english}
+    This is the english abstract. \lipsum[20]
+
+    \vspace{\onelineskip}
+    \noindent
+    \textbf{Keywords}: latex, abntex, text editoration
+  \end{otherlanguage*}
+\end{resumo}
+\restoregeometry
+
+% Lista de ilustrações
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+% Lista de tabelas
+
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+% Lista de abreviaturas e siglas
+
+\begin{siglas}
+  \item[ABNT] Associação Brasileira de Normas Técnicas
+  \item[abnTeX] ABsurdas Normas para TeX
+\end{siglas}
+
+% Lista de símbolos
+
+\begin{simbolos}
+  \item[$ \Gamma $] Letra grega Gama
+  \item[$ \Lambda $] Lambda
+  \item[$ \zeta $] Letra grega minúscula zeta
+  \item[$ \in $] Pertence
+\end{simbolos}
+
+% Sumário
+
+\pdfbookmark[0]{\contentsname}{toc}
+\addcontentsline{toc}{chapter}{Introdução}
+\addcontentsline{toc}{chapter}{Conclusão}
+\tableofcontents*
+\cleardoublepage
+
+\textual                % elementos textuais
+\pagestyle{simple}      % numeração na página do cabeçalho
+
+\chapter*{Introdução}
+
+Este modelo de documento foi construído com base no guia de teses da pós
+graduação do IPEN. Os títulos dos capítulos devem estar em maiúscula e negrito.
+Chamadas para referências podem ser feitas dentro do texto assim:
+\citeonline{Adelman1995}, ou no final de um parágrafo assim \cite{Adelman1995}.
+Na verdade só querermos colocar uma referência aqui para aparecer a seção de
+referências no final.
+
+\lipsum[50]
+
+\chapter{Primeiro capítulo}
+
+A figura \ref{Fig:Logomarca} é um exemplo para que tenhamos a lista de figuras. \lipsum[20]
+
+\begin{figure}[htb]
+  \caption{Logomarca do IPEN}
+  \begin{center}
+	\includegraphics[width=0.6\textwidth]{./ipen.png}
+  \end{center}
+  \legend{Fonte: Internet}
+  \label{Fig:Logomarca}
+\end{figure}
+
+\lipsum[20]
+
+\section{Primeira seção}
+
+A tabela \ref{Tab:Exemplo} serve para termos também a lista de tabelas. \lipsum[20]
+
+\begin{table}[htb]
+
+  \centering
+  \ABNTEXfontereduzida
+
+  \caption{Descrição da pontuação para o critério `custo'}
+
+  \label{Tab:Custo}
+
+  \begin{tabular}{p{2cm}|p{10cm}}
+
+    \textbf{Pontuação} & \textbf{Descrição} \\
+
+    \hline
+
+    $\star$ &
+    Custo muito alto, quase impraticável \\
+
+    $\star\star$ &
+    Custo alto, considerável \\
+
+    $\star\star\star$ &
+    Custo moderado \\
+
+    $\star\star\star\star$ &
+    Custo baixo, considerável \\
+
+    $\star\star\star\star\star$ &
+    Custo muito baixo, irrisório  \\
+
+    \hline
+
+  \end{tabular}
+
+\end{table}
+
+\lipsum[20]
+
+\section{Segunda seção}
+
+\lipsum[50]
+\lipsum[20]
+
+\chapter*{Conclusão}
+
+\lipsum[50]
+\lipsum[50]
+
+\postextual             % elementos pós textuais
+
+% Referências bibliográficas
+
+\bibliography{referencias}
+
+% Glossário
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% Apêndices
+%
+% \begin{apendicesenv}
+%   \partapendices        % imprime uma página indicando o início dos apêndices
+%
+%   \chapter{Quisque libero justo}
+%
+%   \lipsum[50]
+%
+%   \chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+%   ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+%
+%   \lipsum[55-57]
+%
+% \end{apendicesenv}
+
+
+% Anexos
+%
+% \begin{anexosenv}
+%
+%   \partanexos         % imprime uma página indicando o início dos anexos
+%
+%   \chapter{Morbi ultrices rutrum lorem.}
+%
+%   \lipsum[30]
+%
+%   \chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+%   parturient montes nascetur ridiculus mus}
+%
+%   \lipsum[31]
+%
+%   \chapter{Fusce facilisis lacinia dui}
+%
+%   \lipsum[32]
+%
+% \end{anexosenv}
+
+% Índice remissivo
+
+\printindex
+
+\end{document}

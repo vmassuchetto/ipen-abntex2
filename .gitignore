@@ -1,0 +1,14 @@
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.log
+*.pdf
+*.lof
+*.lot
+*.toc
+
+# Vim
+*.swp
