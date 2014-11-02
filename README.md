@@ -22,7 +22,7 @@ Se você trocar o nome do arquivo `documento.tex`, vá também na primeira linha
 do `Makefile` e troque o nome ali para que a rotina de compilação possa ser
 executada com o novo nome.
 
-Os comentários nos arquivos `documento.tex' e `ipen.sty` possuem indicações de
+Os comentários nos arquivos `documento.tex` e `ipen.sty` possuem indicações de
 uso e detalhamento dos comandos que foram configurados para atender os
 requisitos do guia de teses.
 
