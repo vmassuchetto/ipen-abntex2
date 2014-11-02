@@ -9,7 +9,7 @@ Veja o [PDF de exemplo](./documento.pdf) que é gerado.
 
 ### Para utilizar
 
-O `Makefile' utiliza `rubber', um wrapper do LaTeX para fazer as compilações
+O `Makefile` utiliza `rubber`, um wrapper do LaTeX para fazer as compilações
 necessárias:
 
     apt-get install rubber
