@@ -26,10 +26,10 @@ Os comentários nos arquivos `documento.tex' e `ipen.sty` possuem indicações d
 uso e detalhamento dos comandos que foram configurados para atender os
 requisitos do guia de teses.
 
-### Compilando automativamente à medida que se edita
+### Compilando automaticamente à medida que se edita
 
-Uma coisa que gosto de fazer é configurar o script Ruby watchr para monitorar
-as modificações e ir compilando à medida que se edita o arquivo `.tex'.
+Uma coisa que gosto de fazer é configurar o script Ruby `watchr` para monitorar
+as modificações e ir compilando à medida que se edita o arquivo `.tex`.
 
 Instalar:
 
