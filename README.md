@@ -1,7 +1,7 @@
 ### Sobre
 
 Este é um modelo de documento elaborado segundo [guia de
-teses](./guia-teses.pdf) e dissertações do Instituto de Pesquisas Energéticas e
+teses](./guia-teses.pdf?raw=true) e dissertações do Instituto de Pesquisas Energéticas e
 Nucleares (IPEN), e abrange os documentos necessários para os programas de
 ensino da instituição.
 
