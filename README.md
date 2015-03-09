@@ -5,7 +5,7 @@ teses](./guia-teses.pdf) e dissertações do Instituto de Pesquisas Energéticas
 Nucleares (IPEN), e abrange os documentos necessários para os programas de
 ensino da instituição.
 
-Veja o [PDF de exemplo](./documento.pdf) que é gerado.
+Veja o [PDF de exemplo](./documento.pdf?raw=true) que é gerado.
 
 ### Para utilizar
 
